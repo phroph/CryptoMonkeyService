@@ -11,3 +11,21 @@ target
 .cdk.staging
 cdk.out
 
+HELP.md
+app/target/
+mvnw
+.gitignore
+dist
+
+### STS ###
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+*.iws
+*.ipr
+
+### VS Code ###
+.vscode/

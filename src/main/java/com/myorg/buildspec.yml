@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+
+    build:
+      commands:
+        - java -version
+        - mvn package
+        - cdk deploy
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist''
