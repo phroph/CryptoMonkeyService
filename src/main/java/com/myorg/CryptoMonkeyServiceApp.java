@@ -10,6 +10,8 @@ public class CryptoMonkeyServiceApp {
     public static void main(final String[] args) {
         App app = new App();
 
+        new CryptoMonkeyPipelineStack(app, "CryptoMonkeyPipelineStack", StackProps.builder()
+                .build());
         new CryptoMonkeyServiceStack(app, "CryptoMonkeyServiceStack", StackProps.builder()
                 // If you don't specify 'env', this stack will be environment-agnostic.
                 // Account/Region-dependent features and context lookups will not work,

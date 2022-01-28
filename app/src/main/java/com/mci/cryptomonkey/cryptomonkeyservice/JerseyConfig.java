@@ -8,7 +8,6 @@ import com.mci.cryptomonkey.cryptomonkeyservice.client.QuoteDatastoreClient;
 import com.mci.cryptomonkey.cryptomonkeyservice.runner.CryptoWatchRunner.CryptoWatchRunner;
 import com.mci.cryptomonkey.cryptomonkeyservice.runner.QuoteRunner;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
