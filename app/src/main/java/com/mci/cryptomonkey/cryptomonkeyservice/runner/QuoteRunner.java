@@ -11,4 +11,6 @@ public interface QuoteRunner {
      * Terminates the runner, stopping all data updates and polling.
      */
     void terminate();
+
+    boolean isRunning();
 }

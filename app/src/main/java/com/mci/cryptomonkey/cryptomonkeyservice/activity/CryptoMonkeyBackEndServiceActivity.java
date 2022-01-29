@@ -12,7 +12,7 @@ public class CryptoMonkeyBackEndServiceActivity {
     QuoteRunner dataClient;
 
     @Autowired
-    @Qualifier("DynamoQuoteStoreClient")
+    @Qualifier("LocalQuoteDatastore") // TODO: Implement and upgrade to durable storage like S3/DDB
     QuoteDatastoreClient quoteClient;
 
     public String getCollectedMetricNames() {
