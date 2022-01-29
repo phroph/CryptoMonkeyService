@@ -33,11 +33,17 @@ public class CryptoWatchDataClient implements ExternalCryptoDataClient {
 
     @Override
     public List<String> retrieveAvailableQuoteIds() {
-        Response response = listQuotesTarget.request(MediaType.APPLICATION_JSON).buildGet().invoke();
-        ListQuotesResponse decodedResponse = response.readEntity(ListQuotesResponse.class);
-        return decodedResponse.getResult().stream().map(pair ->
-                        QuoteIdFormatter.ConvertPairToQuoteId(pair.getBase().getSymbol(), pair.getQuote().getSymbol()))
-                .collect(Collectors.toList());
+        try {
+            Response response = listQuotesTarget.request(MediaType.APPLICATION_JSON).buildGet().invoke();
+            ListQuotesResponse decodedResponse = response.readEntity(ListQuotesResponse.class);
+            return decodedResponse.getResult().stream().map(pair ->
+                            QuoteIdFormatter.ConvertPairToQuoteId(pair.getBase().getSymbol(), pair.getQuote().getSymbol()))
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

@@ -39,6 +39,10 @@ We will implement a mechanism for distributed access keys to developer apps to b
 * Cleanup codebase and improve organization/groupings
 * Add Checkstyle and code cleanliness automation
 * Make runner more intelligent with detected transient internal failure and reporting it
+* **Add logging and log to CloudWatch**
+* Fix Jersey, its not working right
+* Remove duplicates from QuoteId list
+* Fix Quote pulling (only quotelist works)
 
 #### Production Readiness
 
@@ -72,6 +76,10 @@ This service is deployed through CDK and has basic CI features which allow for a
 
 **NOTE:** If you want to have your service automatically track changes in this GitHub repo rather than fork your own (skipping steps 3 and 4), please reach out and we can work out a secure process for transferring an access token.
 
+### Local testing
+
+Run the Spring application locally from the `app`
+directory using the `mvn spring-boot:run` command. You will be able to hit the service locally using a URL like `http://localhost:8080/query/quote`
 ### First-time deployment
 
 To deployment all CDK resources the first time please run the following two commands:

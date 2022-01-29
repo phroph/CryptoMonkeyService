@@ -11,15 +11,11 @@ import com.mci.cryptomonkey.cryptomonkeyservice.runner.CryptoWatchRunner.CryptoW
 import com.mci.cryptomonkey.cryptomonkeyservice.runner.QuoteRunner;
 import com.mci.cryptomonkey.cryptomonkeyservice.service.CryptoMonkeyBackEndService;
 import com.mci.cryptomonkey.cryptomonkeyservice.service.CryptoMonkeyFrontEndService;
-import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class JerseyConfig extends ResourceConfig {
-    public JerseyConfig() {
-        register(CryptoMonkeyFrontEndServiceActivity.class);
-    }
+public class SpringConfig {
 
     @Bean(name = "DynamoQuoteStoreClient")
     public QuoteDatastoreClient dynamoQuoteStoreClient() {
@@ -42,14 +38,6 @@ public class JerseyConfig extends ResourceConfig {
     @Bean
     public CryptoMonkeyBackEndServiceActivity backEndServiceActivity() {
         return new CryptoMonkeyBackEndServiceActivity();
-    }
-    @Bean
-    public CryptoMonkeyFrontEndService frontEndService() {
-        return new CryptoMonkeyFrontEndService();
-    }
-    @Bean
-    public CryptoMonkeyBackEndService backEndService() {
-        return new CryptoMonkeyBackEndService();
     }
 
     @Bean(name = "LocalQuoteDatastore")

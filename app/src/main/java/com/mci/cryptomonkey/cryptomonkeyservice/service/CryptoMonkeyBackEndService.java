@@ -5,14 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mci.cryptomonkey.cryptomonkeyservice.activity.CryptoMonkeyBackEndServiceActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @Service
-@Path("/serve")
+//@RestController Should not be consumed publically
 public class CryptoMonkeyBackEndService {
     @Autowired
     CryptoMonkeyBackEndServiceActivity activity;
@@ -23,9 +22,7 @@ public class CryptoMonkeyBackEndService {
         mapper = new ObjectMapper();
     }
 
-    @GET
-    @Path("quote/collectedMetricNames")
-    @Produces("application/json")
+    @RequestMapping(value = "/serve/quote", method = RequestMethod.GET, produces = "application/json")
     public String getCollectedMetricNames() throws CryptoMonkeyInteralServiceError {
         try {
             return mapper.writeValueAsString(activity.getCollectedMetricNames());
@@ -34,11 +31,10 @@ public class CryptoMonkeyBackEndService {
         }
     }
 
-    @GET
-    @Path("quote/{coin}/{currency}")
+    @RequestMapping(value = "/serve/quote/{coin}/{currency}", method = RequestMethod.GET, produces = "application/json")
     public String queryQuoteMetric(
-            @PathParam("coin") String coin,
-            @PathParam("currency") String currency) throws CryptoMonkeyInteralServiceError {
+            @PathVariable("coin") String coin,
+            @PathVariable("currency") String currency) throws CryptoMonkeyInteralServiceError {
         try {
             return  mapper.writeValueAsString(activity.queryQuoteMetric(coin, currency));
         } catch (JsonProcessingException e) {
@@ -46,11 +42,10 @@ public class CryptoMonkeyBackEndService {
         }
     }
 
-    @GET
-    @Path("quote/{coin}/{currency}/rank")
+    @RequestMapping(value = "/serve/quote/{coin}/{currency}/rank", method = RequestMethod.GET, produces = "application/json")
     public String queryQuoteRank(
-            @PathParam("coin") String coin,
-            @PathParam("currency") String currency) throws CryptoMonkeyInteralServiceError {
+            @PathVariable("coin") String coin,
+            @PathVariable("currency") String currency) throws CryptoMonkeyInteralServiceError {
         try {
             return  mapper.writeValueAsString(activity.queryQuoteRank(coin, currency));
         } catch (JsonProcessingException e) {

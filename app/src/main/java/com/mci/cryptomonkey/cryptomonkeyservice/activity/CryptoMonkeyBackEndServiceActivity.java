@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CryptoMonkeyBackEndServiceActivity implements ApplicationListener<ApplicationReadyEvent> {
     private final static int POLLING_RATE = 1000;

@@ -1,12 +1,16 @@
 package com.mci.cryptomonkey.cryptomonkeyservice.client.CryptoWatch.model;
 
-import lombok.Builder;
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Builder
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CryptoWatchQuote {
     int id;
     String symbol;
