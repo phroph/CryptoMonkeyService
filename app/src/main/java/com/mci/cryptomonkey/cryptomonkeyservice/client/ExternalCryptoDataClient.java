@@ -16,5 +16,5 @@ public interface ExternalCryptoDataClient {
      * Retrieves the quote for a given coin/currency pair.
      * @return
      */
-    List<Quote> retrieveQuote(String coin, String currency);
+    Quote retrieveQuote(String coin, String currency);
 }
