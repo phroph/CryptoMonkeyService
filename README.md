@@ -92,7 +92,7 @@ The CryptoMonkey service (although currently a monolith), is divided into 3 prim
 2. BackEndService - The BackEndService is meant to serve data for the FrontEndService by collecting information from the Runner/DataStore. It should only serve service authenticated calls. It also does any data-processing necessary to derive values as needed.
 3. RunnerService - The RunnerService is meant to perform and manage aspects of the data poller. It connects to the Market API (Cryptowat.ch), loads all necessary pieces, and then pushes it to the appropriate DataStore.
 
-![Simple Architecture Diagram](https://github.com/phroph/CryptoMonkey/blob/master/CryptoMonkey.png?raw=true)
+![Simple Architecture Diagram](https://github.com/phroph/CryptoMonkeyService/blob/master/CryptoMonkey.png?raw=true)
 
 The diagram above gives a high level view of the intended long-term architecture for this service to make it more scalable. All components can scale independently of eachother and are not pinned against physical resources but against throughput rate. The challenge regarding scaling just involves insuring that we fail gracefully and requires some analysis on what behaviors are needed when CryptoWat.ch API struggles or has slow response rate.
 
