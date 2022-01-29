@@ -18,7 +18,7 @@ public class CryptoMonkeyFrontEndService {
     @GET
     @Path("quote")
     @Produces("application/json")
-    public String getAvailableQuotes() {
+    public String getAvailableQuotes() throws CryptoMonkeyInteralServiceError {
         return activity.getAvailableQuotes();
     }
 
@@ -26,14 +26,14 @@ public class CryptoMonkeyFrontEndService {
     @Path("quote/{coin}/{currency}")
     public String getQuote(
             @PathParam("coin") String coin,
-            @PathParam("currency") String currency) {
+            @PathParam("currency") String currency) throws CryptoMonkeyInteralServiceError {
         return activity.getQuote(coin, currency);
     }
     @GET
     @Path("quote/{coin}/{currency}/rank")
     public String getRank(
             @PathParam("coin") String coin,
-            @PathParam("currency") String currency) {
+            @PathParam("currency") String currency) throws CryptoMonkeyInteralServiceError {
         return activity.getRank(coin, currency);
     }
 }
