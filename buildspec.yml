@@ -10,7 +10,3 @@ phases:
         - java -version
         - mvn package
         - cdk deploy --all
-artifacts:
-  files:
-    - '**/*'
-  base-directory: 'dist''
