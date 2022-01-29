@@ -9,7 +9,7 @@ phases:
       commands:
         - java -version
         - mvn package
-        - cdk deploy
+        - cdk deploy --all
 artifacts:
   files:
     - '**/*'
