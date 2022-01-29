@@ -1,5 +1,6 @@
 package com.mci.cryptomonkey.cryptomonkeyservice;
 
+import com.mci.cryptomonkey.cryptomonkeyservice.activity.CryptoMonkeyBackEndServiceActivity;
 import com.mci.cryptomonkey.cryptomonkeyservice.activity.CryptoMonkeyFrontEndServiceActivity;
 import com.mci.cryptomonkey.cryptomonkeyservice.client.CryptoWatch.CryptoWatchDataClient;
 import com.mci.cryptomonkey.cryptomonkeyservice.client.DynamoQuoteStore.DynamoQuoteStoreClient;
@@ -29,5 +30,15 @@ public class JerseyConfig extends ResourceConfig {
     @Bean(name = "CryptoWatchDataClient")
     public ExternalCryptoDataClient cryptoWatchDataClient() {
         return new CryptoWatchDataClient();
+    }
+
+    @Bean
+    public CryptoMonkeyFrontEndServiceActivity frontEndServiceActivity() {
+        return new CryptoMonkeyFrontEndServiceActivity();
+    }
+
+    @Bean
+    public CryptoMonkeyBackEndServiceActivity backEndServiceActivity() {
+        return new CryptoMonkeyBackEndServiceActivity();
     }
 }
